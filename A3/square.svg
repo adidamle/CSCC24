@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN'
+'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg'
+width='400px' height='300px'>
+<g transform='translate(200, 150) scale(1, -1)'>
+<path fill='none' stroke='black' stroke-width='1' d='M 0 0 m 50 0 m 0 50 l -100 0 l -0 -100 l 100 -0 l 0 100 '/>
+</g></svg>
