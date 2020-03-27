@@ -1,0 +1,32 @@
+Please go to the Haskell Wikibook (https://en.wikibooks.org/wiki/Haskell) and
+study the following sections for a start on very basic Haskell and basic usage
+of ghci (Haskell REPL):
+
+Under "Beginner's Track", under "Haskell Basics":
+  from "Getting set up"
+  to and including "Type basics"
+
+
+Normally you would not write code at the ghci prompt directly (can be done but
+doesn't scale).  Use your favourite editor to put code in a file, then go to
+ghci and use its ":load" command or ":reload", then test as you like.
+
+
+In case a lab computer says "Command 'ghci' not found", the full path is:
+
+    /usr/local/cms/ghc-8.6.3/bin/ghc
+
+(If you run into this problem, please email Albert the hostname of the lab computer.)
+
+
+And then, if my test file causes "Could not find module Test.HUnit", this means
+you have to install the unit testing library "HUnit" manually.  You only have to
+do it once for the whole term.
+
+    cabal v1-update
+    cabal v1-install HUnit
+
+(cabal's full path: /usr/local/bin/cabal)
+
+After the course, if you want to delete it to reclaim space, look under .cabal/
+and .ghc/

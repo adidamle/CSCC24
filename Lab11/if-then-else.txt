@@ -1,0 +1,59 @@
+---------------------------------------- QUESTION 1
+TREE 1
+
+          <stmt>
+             |
+          <cond>
+             |
+"if" <test> "then" <stmt>
+       |             |
+      "T1"         <cond>
+                     |
+       "if" <test> "then" <stmt> "else" <stmt>
+              |             |              |
+             "T2"          "A"            "B"
+
+TREE 2
+
+          <stmt>
+             |
+          <cond>
+             |
+"if" <test> "then" <stmt> "else" <stmt>
+       |             |              |
+      "T1"         <cond>          "B"
+                     |
+       "if" <test> "then" <stmt>
+              |             |
+             "T2"          "A"
+
+
+---------------------------------------- QUESTION 2
+
+Here are 2 trees (with just the curry braces) - 
+
+Trees 1. if T1 then {if T2 then {A} else {B}}
+Tress 2. if T1 then {if T2 then {A}} else {B}
+
+
+
+---------------------------------------- QUESTION 3
+
+Here is a parse tree for the statement - if T1 then if T2 then A else B else C
+
+          <stmt>
+             |
+          <cond>
+             |
+"if" <test> "then" <stmt> "else" <stmt>
+       |             |              |
+      "T1"         <cond>          "C"
+                     |
+       "if" <test> "then" <stmt> "else" <stmt>
+              |             |             |
+             "T2"          "A"           "B"
+
+
+
+
+

@@ -1,0 +1,59 @@
+This exercise is about carrying out lazy evaluation and noticing its pros and
+cons on foldr.
+
+First we need to agree on some code:
+
+    foldr op z [] = z
+    foldr op z (x:xs) = op x (foldr op z xs)
+
+    False && _ = False
+    True  && c = c
+
+
+Exercise 1 [3 marks]
+----------
+
+Show the lazy evaluation steps of
+
+   foldr (+) 10 (1 : 2 : 3 : [])
+
+until you obtain a single number.  The first step is done to suggest notation.
+It is best to add clarifying parentheses: If you have "foo + bar + quux" it is
+best to write either "(foo + bar) + quux" or "foo + (bar + quux)" to indicate
+which one you mean.
+
+Answer:
+
+   foldr (+) 10 (1 : 2 : 3 : [])
+-> 1 + (foldr (+) 10 (2 : 3 : []))
+-> 1 + (2 + (foldr (+) 10 (3: [])))
+-> 1 + (2 + (3 + (foldr (+) 10 [])))
+-> 1 + (2 + (3 + (foldr (+) 10 [])))
+-> 1 + (2 + (3 + 10))
+-> 1 + (2 + 13)
+-> 1 + 15
+-> 16
+
+Exercise 2 [3 marks]
+----------
+
+Show the lazy evaluation steps of
+
+   foldr (&&) True (False : True : True : [])
+
+until you obtain a single boolean.
+
+Answer:
+
+   foldr (&&) True (False : True : True : [])
+-> False (&&) (foldr (&&) True (True: True: []))
+-> False (&&) (True (&&) (foldr (&&) True (True: [])))
+-> False (&&) (True (&&) (True (&&) (foldr (&&) True [])))
+-> False (&&) (True (&&) (True && True))
+-> False (&&) (True (&&) True)
+-> False (&&) True
+-> False
+
+
+
+
